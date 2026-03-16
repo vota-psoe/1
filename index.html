@@ -4,109 +4,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VOTA PSOE </title>
+    <title>VOTA PSOE | España Avanza</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;800;900&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Archivo', sans-serif;
+            background-color: #E30613;
+            /* Official PSOE Red */
+            color: #F4F4F0;
+            /* Stark off-white/cream */
         }
 
-        .bg-psoe {
-            background-color: #ba0505;
+        /* Subtle paper texture for analog authenticity, no cartoonish noise */
+        .paper-grain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.4;
+            mix-blend-mode: multiply;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         }
 
-        .text-psoe {
-            color: #ae0505;
+        /* Institutional input styling */
+        .bureaucratic-input {
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid #1A1A1A;
+            color: #1A1A1A;
+            border-radius: 0;
         }
 
-        /* Dramatic diagonal cut for the hero section */
-        .clip-hero {
-            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        .bureaucratic-input:focus {
+            outline: none;
+            border-bottom-color: #E30613;
         }
 
-        /* Scrolling marquee animation */
-        @keyframes marquee {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-
-        .animate-marquee {
-            display: inline-block;
-            white-space: nowrap;
-            animation: marquee 15s linear infinite;
+        .bureaucratic-input::placeholder {
+            color: rgba(26, 26, 26, 0.5);
         }
     </style>
 </head>
 
-<body class="bg-zinc-950 text-white selection:bg-white selection:text-[#E30613] overflow-x-hidden w-full max-w-full">
+<body class="selection:bg-[#1A1A1A] selection:text-[#F4F4F0] min-h-screen flex flex-col m-0 p-0 overflow-x-hidden">
 
-    <nav
-        class="mt-4  fixed w-full max-w-full z-50 -mix-blend-difference px-4 py-4 sm:p-6 flex flex-wrap gap-4 justify-between items-center box-border">
-        <div class="text-3xl sm:text-4xl font-black text-white leading-none shrink-0">
-            VOTA<br>PSOE
+    <div class="paper-grain"></div>
+
+    <header
+        class="w-full bg-[#1A1A1A] text-[#F4F4F0] px-6 py-4 flex justify-between items-end border-b-8 border-[#F4F4F0]">
+        <div class="text-xl md:text-2xl font-black tracking-widest uppercase">
+            VOTA PSOE
         </div>
-        <!--a href="#unete"
-            class="border-2 border-white text-white px-4 py-2 sm:px-6 sm:py-2 text-sm sm:text-base rounded-full font-bold uppercase tracking-wide hover:bg-white hover:text-black transition-all duration-300 whitespace-nowrap shrink-0">
-            Actúa Ahora
-        </a-->
-    </nav>
-
-    <header class="relative bg-psoe min-h-screen flex items-center pt-20 overflow-hidden">
-        <div class="absolute inset-0 bg-black opacity-10 mix-blend-multiply"></div>
-
-        <div
-            class="relative z-10 w-full px-4 sm:px-8 lg:px-16 flex flex-col justify-between items-stretch gap-12 lg:gap-8">
-            <h1
-                class="text-[4rem] min-[400px]:text-[5rem] sm:text-[8rem] lg:text-[13rem] font-black leading-none tracking-tighter uppercase text-[#f6db71] drop-shadow-2xl break-words">
-                España<br>
-                <span class="text-[#f6db71]">Avanza.</span>
-            </h1>
-
-            <div
-                class="flex flex-col justify-end max-w-sm w-full ml-auto pt-4 lg:pt-0 pb-12 lg:pb-0 h-full gap-8 text-right">
-                <div style="font-family: 'Instrument Serif', serif;"
-                    class="text-4xl sm:text-6xl lg:text-[4.5rem] text-white leading-tight italic tracking-tight break-words hyphens-auto font-bold"
-                    lang="es">
-                    Tú también!
-                </div>
-
-                <form id="signup-form" action="https://submit-form.com/5K4dK3TQC"
-                    class="w-full max-w-full relative group mt-auto flex flex-col gap-3">
-                    <label for="email" class="sr-only">Correo electrónico</label>
-                    <input type="email" id="email" name="email" placeholder="Tu correo electrónico" required
-                        style="font-family: 'Instrument Serif', serif;"
-                        class="w-full bg-transparent text-white placeholder-white/50 text-xl italic border-b border-white/40 focus:border-[#f6db71] focus:outline-none pb-2 transition-colors duration-300" />
-                    <button type="submit" id="signup-btn"
-                        class="mt-0 w-full bg-[#f6db71] text-[#c10d0d] font-black uppercase tracking-[0.15em] text-sm py-3 px-6 hover:bg-white transition-colors duration-300 rounded-none">
-                        SÚMALE 1 →
-                    </button>
-                    <p id="signup-error" class="hidden text-white/60 text-xs text-right">Algo ha fallado. Inténtalo de
-                        nuevo.</p>
-                </form>
-            </div>
+        <div class="text-sm font-bold tracking-widest uppercase opacity-80">
+            Manifiesto 2026
         </div>
     </header>
 
-    <div id="year-label" class="fixed bottom-4 left-4 text-white/70 text-xs font-mono tracking-widest z-50"></div>
+    <main class="flex-grow flex flex-col lg:flex-row w-full max-w-[1600px] mx-auto">
+
+        <div class="w-full lg:w-3/5 p-8 md:p-16 flex flex-col border-b-8 lg:border-b-0 lg:border-r-8 border-[#1A1A1A]">
+            <div class="flex-grow flex items-center justify-center text-center pb-8 md:pb-0">
+                <h1
+                    class="text-[5rem] sm:text-[8rem] lg:text-[12rem] font-black leading-[0.8] tracking-tighter uppercase text-[#1A1A1A] m-0">
+                    ESPAÑA<br>
+                    <span class="text-[#F4F4F0]">AVANZA</span>
+                </h1>
+            </div>
+            <p
+                class="w-full text-right text-2xl md:text-4xl font-extrabold uppercase tracking-tight text-[#f2f2f2] leading-none mt-auto">
+                Tú también
+            </p>
+        </div>
+
+        <div class="w-full lg:w-2/5 bg-[#F4F4F0] flex flex-col justify-center relative">
+
+            <div class="p-8 md:p-16 flex flex-col justify-center flex-grow">
+                <h2
+                    class="text-[#E30613] text-4xl md:text-5xl font-black uppercase tracking-tighter leading-none mb-10">
+                    SÉ PARTE<br>DEL PLAN.
+                </h2>
+
+                <form id="signup-form" action="https://submit-form.com/5K4dK3TQC" class="w-full flex flex-col gap-8">
+                    <div class="relative">
+                        <label for="email"
+                            class="block text-[#1A1A1A] font-bold uppercase tracking-widest text-xs mb-2"> </label>
+                        <input type="email" id="email" name="email" placeholder="SU CORREO" required
+                            class="bureaucratic-input w-full text-2xl md:text-3xl font-bold uppercase tracking-wide py-2 transition-all" />
+                    </div>
+
+                    <button type="submit" id="signup-btn"
+                        class="w-full bg-[#1A1A1A] text-[#F4F4F0] font-black uppercase tracking-[0.15em] text-xl py-6 hover:bg-[#E30613] transition-colors duration-300">
+                        RECIBIR EL MANIFIESTO →
+                    </button>
+
+                    <p id="signup-error"
+                        class="hidden text-[#E30613] font-bold text-sm uppercase tracking-wide border-l-4 border-[#E30613] pl-3">
+                        Error de validación. Inténtelo de nuevo.
+                    </p>
+                </form>
+            </div>
+
+            <div class="bg-[#1A1A1A] p-6 text-[#F4F4F0] w-full mt-auto">
+                <div class="text-xs font-bold tracking-widest uppercase flex justify-between">
+                    <span>INICIATIVA INDEPENDIENTE — NO OFICIAL</span>
+                    <span id="year-label"></span>
+                </div>
+            </div>
+        </div>
+
+    </main>
 
     <script>
-        document.getElementById('year-label').textContent = '' + new Date().getFullYear();
+        document.getElementById('year-label').textContent = new Date().getFullYear();
+
         document.getElementById('signup-form').addEventListener('submit', async function (e) {
             e.preventDefault();
             const form = e.target;
             const btn = document.getElementById('signup-btn');
             const error = document.getElementById('signup-error');
 
-            btn.textContent = '...';
+            const originalBtnText = btn.textContent;
+            btn.textContent = 'PROCESANDO DATOS...';
             btn.disabled = true;
+            btn.classList.add('opacity-50', 'cursor-wait');
             error.classList.add('hidden');
 
             const payload = {};
@@ -122,19 +147,23 @@
                     }
                 });
                 if (res.ok) {
-                    form.innerHTML = '<p style="font-family:\'Instrument Serif\', serif;" class="text-white/80 italic text-lg">¡Gracias! Te avisaremos pronto.</p>';
+                    form.innerHTML = `
+                        <div class="border-4 border-[#1A1A1A] p-6 text-[#1A1A1A]">
+                            <p class="font-black text-3xl uppercase tracking-tighter mb-2">REGISTRO COMPLETADO.</p>
+                            <p class="font-bold uppercase tracking-widest text-sm">Conectado. Pronto recibirás nuevas comunicaciones.</p>
+                        </div>`;
                 } else {
                     throw new Error('Response ' + res.status);
                 }
             } catch (err) {
                 console.error(err);
-                btn.textContent = 'Sumarme →';
+                btn.textContent = originalBtnText;
                 btn.disabled = false;
+                btn.classList.remove('opacity-50', 'cursor-wait');
                 error.classList.remove('hidden');
             }
         });
     </script>
-
 </body>
 
 </html>
