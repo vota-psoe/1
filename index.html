@@ -36,85 +36,90 @@
         .bureaucratic-input {
             background: transparent;
             border: none;
-            border-bottom: 3px solid #1A1A1A;
-            color: #1A1A1A;
+            border-bottom: 3px solid #ffffff;
+            color: #ffffff;
             border-radius: 0;
         }
 
         .bureaucratic-input:focus {
             outline: none;
-            border-bottom-color: #000000;
+            border-bottom-color: #f6db71;
         }
 
         .bureaucratic-input::placeholder {
-            color: rgba(26, 26, 26, 0.5);
+            color: rgba(255, 255, 255, 0.7);
         }
     </style>
 </head>
 
-<body class="selection:bg-[#1A1A1A] selection:text-[#F4F4F0] min-h-screen flex flex-col m-0 p-0 overflow-x-hidden">
+<body class="selection:bg-[#F4F4F0] selection:text-[#1a1a1a] min-h-screen flex flex-col m-0 p-0 overflow-x-hidden">
 
     <div class="paper-grain"></div>
 
-    <header
-        class="w-full bg-[#1A1A1A] text-[#F4F4F0] px-6 py-4 flex justify-between items-end border-b-8 border-[#F4F4F0]">
-        <div class="text-xl md:text-2xl font-black tracking-widest uppercase">
-            VOTA PSOE
+    <header class="w-full bg-[#1A1A1A] text-[#F4F4F0] px-6 py-4 flex justify-between items-center border-[#F4F4F0]">
+        <div class="flex items-center gap-3 text-xl md:text-3xl font-black tracking-widest uppercase">
+            <img src="favicon.png" alt="Logo" class="w-7 h-7 md:w-8 md:h-8">
+            <span>VOTA PSOE</span>
         </div>
         <div class="text-sm font-bold tracking-widest uppercase opacity-80">
-            Manifiesto 2026
+
         </div>
     </header>
 
-    <main class="flex-grow flex flex-col lg:flex-row w-full max-w-[1600px] mx-auto">
+    <main class="flex-grow flex flex-col lg:flex-row w-full max-w-[1600px] mx-auto min-h-[calc(100vh-64px)]">
 
         <div
-            class="w-full lg:w-3/5 bg-[#ba0505] p-8 md:p-16 flex flex-col border-b-8 lg:border-b-0 lg:border-r-8 border-[#1A1A1A]">
+            class="w-full lg:w-4/5 bg-[#1a1a1a] p-8 md:p-16 flex flex-col justify-between border-b-8 lg:border-b-0 lg:border-r-8 border-[#1A1A1A]">
             <div class="flex-grow flex items-center justify-center text-center pb-8 md:pb-0">
                 <h1
-                    class="text-[5rem] sm:text-[8rem] lg:text-[12rem] font-black leading-[0.8] tracking-tighter uppercase text-[#f6db71] m-0">
-                    ESPAÑA<br>
-                    <span class="text-[#F4F4F0]">AVANZA</span>
+                    class="text-[5rem] sm:text-[8rem] lg:text-[12rem] font-black leading-[0.8] tracking-tighter uppercase text-[#f6db71] m-0 flex flex-col">
+                    <span
+                        class="-translate-x-4 md:-translate-x-8 lg:-translate-x-12 -translate-y-2 md:-translate-y-10 lg:-translate-y-36">ESPAÑA</span>
+                    <span
+                        class="text-[#ba0505] translate-x-4 md:translate-x-8 lg:translate-x-12 translate-y-2 md:translate-y-10 lg:translate-y-16">AVANZA</span>
                 </h1>
             </div>
             <p
-                class="w-full text-right text-2xl md:text-4xl font-extrabold uppercase tracking-tight text-[#f2f2f2] leading-none mt-auto">
-                Tú también
+                class="w-full italic text-right text-2xl md:text-4xl font-extrabold uppercase tracking-tight text-[#f2f2f2] leading-none mt-auto">
+                Tú también!
             </p>
         </div>
 
-        <div class="w-full lg:w-2/5 bg-[#F4F4F0] flex flex-col justify-center relative">
+        <div class="w-full lg:w-2/5 flex flex-col">
+            <div
+                class="bg-[#ba0505] flex flex-col justify-center relative rounded-none lg:rounded-l-3xl overflow-hidden flex-grow">
+                <div class="p-8 md:p-16 flex flex-col justify-center h-full">
+                    <h2
+                        class="text-[#f6db71] text-4xl md:text-5xl font-black uppercase tracking-tighter leading-none mb-10">
+                        SÉ PARTE<br>DEL PLAN.
+                    </h2>
 
-            <div class="p-8 md:p-16 flex flex-col justify-center flex-grow">
-                <h2
-                    class="text-[#E30613] text-4xl md:text-5xl font-black uppercase tracking-tighter leading-none mb-10">
-                    SÉ PARTE<br>DEL PLAN.
-                </h2>
+                    <form id="signup-form" action="https://submit-form.com/5K4dK3TQC"
+                        class="w-full flex flex-col gap-8">
+                        <div class="relative">
+                            <label for="email"
+                                class="block text-[#ffffff] font-bold uppercase tracking-widest text-xs mb-2"> </label>
+                            <input type="email" id="email" name="email" placeholder="SU CORREO" required
+                                class="bureaucratic-input w-full text-2xl md:text-3xl font-bold uppercase tracking-wide py-2 transition-all" />
+                        </div>
 
-                <form id="signup-form" action="https://submit-form.com/5K4dK3TQC" class="w-full flex flex-col gap-8">
-                    <div class="relative">
-                        <label for="email"
-                            class="block text-[#1A1A1A] font-bold uppercase tracking-widest text-xs mb-2"> </label>
-                        <input type="email" id="email" name="email" placeholder="SU CORREO" required
-                            class="bureaucratic-input w-full text-2xl md:text-3xl font-bold uppercase tracking-wide py-2 transition-all" />
-                    </div>
+                        <button type="submit" id="signup-btn"
+                            class="w-full bg-[#1A1A1A] text-[#F4F4F0] font-black uppercase tracking-[0.15em] text-xl py-6 hover:bg-[#f6db71] hover:text-[#1a1a1a] transition-colors duration-300">
+                            HOJA DE RUTA →
+                        </button>
 
-                    <button type="submit" id="signup-btn"
-                        class="w-full bg-[#1A1A1A] text-[#F4F4F0] font-black uppercase tracking-[0.15em] text-xl py-6 hover:bg-[#E30613] transition-colors duration-300">
-                        RECIBIR EL MANIFIESTO →
-                    </button>
-
-                    <p id="signup-error"
-                        class="hidden text-[#E30613] font-bold text-sm uppercase tracking-wide border-l-4 border-[#E30613] pl-3">
-                        Error de validación. Inténtelo de nuevo.
-                    </p>
-                </form>
+                        <p id="signup-error"
+                            class="hidden text-[#E30613] font-bold text-sm uppercase tracking-wide border-l-4 border-[#E30613] pl-3">
+                            Error de validación. Inténtelo de nuevo.
+                        </p>
+                    </form>
+                </div>
             </div>
 
-            <div class="bg-[#1A1A1A] p-6 text-[#F4F4F0] w-full mt-auto">
+            <div class="bg-[#1A1A1A] p-6 text-[#F4F4F0] w-full mt-auto shrink-0">
                 <div
                     class="text-xs font-bold tracking-widest uppercase flex flex-col md:flex-row justify-between gap-4">
-                    <span>INICIATIVA INDEPENDIENTE — NO OFICIAL</span>
+                    <span>INICIATIVA NO ASOCIADA AL PSOE</span>
                     <span><a href="mailto:hola@votapsoe.es"
                             class="hover:text-[#f6db71] text-[#E30613] transition-colors">hola@votapsoe.es</a></span>
                     <span id="year-label"></span>
