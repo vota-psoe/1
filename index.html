@@ -1,179 +1,269 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VOTA PSOE | España Avanza</title>
-    <link rel="icon" type="image/png" href="favicon.png">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;800;900&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Archivo', sans-serif;
-            background-color: #1a1a1a;
-            /* Changed to 1a1a1a, original Red was #ba0505 */
-            color: #F4F4F0;
-            /* Stark off-white/cream */
-            /*s ba0505 ae0505*/
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VOTA PSOE | España Avanza</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=IBM+Plex+Sans:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            red: { DEFAULT: '#D0021B', mid: '#A80016' },
+            cream: '#FAF8F4',
+            white: '#FFFFFF',
+            ink: '#1C1C1C',
+            mid: '#6B6B6B',
+          },
+          fontFamily: {
+            sans: ['"IBM Plex Sans"', 'sans-serif'],
+            display: ['Unbounded', 'sans-serif'],
+          },
+          animation: {
+            'fade-up': 'fadeUp 0.5s forwards',
+            'slide-up': 'slideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+            'fade-in': 'fadeIn 0.7s forwards',
+            'scroll-left': 'scrollLeft 30s linear infinite',
+          },
+          keyframes: {
+            fadeUp: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            slideUp: {
+              '0%': { opacity: '0', transform: 'translateY(40px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            scrollLeft: {
+              '0%': { transform: 'translateX(0)' },
+              '100%': { transform: 'translateX(-50%)' },
+            }
+          }
         }
-
-        /* Subtle paper texture for analog authenticity, no cartoonish noise */
-        .paper-grain {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            pointer-events: none;
-            z-index: 50;
-            opacity: 0.4;
-            mix-blend-mode: multiply;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-        }
-
-        /* Institutional input styling */
-        .bureaucratic-input {
-            background: transparent;
-            border: none;
-            border-bottom: 3px solid #ffffff;
-            color: #ffffff;
-            border-radius: 0;
-        }
-
-        .bureaucratic-input:focus {
-            outline: none;
-            border-bottom-color: #f6db71;
-        }
-
-        .bureaucratic-input::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
-    </style>
+      }
+    }
+  </script>
 </head>
 
-<body class="selection:bg-[#F4F4F0] selection:text-[#1a1a1a] min-h-screen flex flex-col m-0 p-0 overflow-x-hidden">
+<body class="font-sans bg-white text-ink overflow-x-hidden selection:bg-[#1a1a1a] selection:text-red">
 
-    <div class="paper-grain"></div>
+  <header
+    class="fixed top-0 left-0 right-0 z-[100] bg-white  border-black/[0.08] flex items-center px-6 lg:px-10 h-[60px] overflow-hidden">
+    <!-- Navbar Left -->
+    <div
+      class=" flex items-center gap-2.5 font-display font-black text-[1rem] tracking-[0.08em] uppercase text-ink shrink-0 bg-white relative z-10 pr-6">
+      <img src="favicon.png" alt="Logo" class="w-[26px] h-[26px] shrink-0">
+      Vota PSOE
+    </div>
+    <!-- TICKER MIDDLE -->
+    <div
+      class="flex-1 overflow-hidden whitespace-nowrap bg-white font-display font-bold text-[0.68rem] tracking-[0.08em] uppercase text-ink"
+      aria-hidden="true">
+      <div class="inline-block animate-scroll-left">
+        España Protege <span class="inline-block mx-[22px] text-red">●</span>
+        Soberanía Nacional <span class="inline-block mx-[22px] text-red">●</span>
+        Refugio Democrático <span class="inline-block mx-[22px] text-red">●</span>
+        Soberanía Industrial <span class="inline-block mx-[22px] text-red">●</span>
+        Bastión de Libertad <span class="inline-block mx-[22px] text-red">●</span>
+        Resistencia Institucional <span class="inline-block mx-[22px] text-red">●</span>
+        Defensa del Estado <span class="inline-block mx-[22px] text-red">●</span>
+        Freno al Autoritarismo <span class="inline-block mx-[22px] text-red">●</span>
+        Vota PSOE <span class="inline-block mx-[22px] text-red">●</span>
+        España Protege <span class="inline-block mx-[22px] text-red">●</span>
+        Soberanía Nacional <span class="inline-block mx-[22px] text-red">●</span>
+        Refugio Democrático <span class="inline-block mx-[22px] text-red">●</span>
+        Soberanía Industrial <span class="inline-block mx-[22px] text-red">●</span>
+        Bastión de Libertad <span class="inline-block mx-[22px] text-red">●</span>
+        Resistencia Institucional <span class="inline-block mx-[22px] text-red">●</span>
+        Defensa del Estado <span class="inline-block mx-[22px] text-red">●</span>
+        Freno al Autoritarismo <span class="inline-block mx-[22px] text-red">●</span>
+        Vota PSOE <span class="inline-block mx-[22px] text-red">●</span>
+      </div>
+    </div>
+    <!-- Navbar Right -->
+    <!--span class="hidden md:block text-[0.65rem] font-medium tracking-[0.18em] uppercase text-mid shrink-0 bg-white relative z-10 pl-6">España Avanza</span-->
+  </header>
 
-    <header class="w-full bg-[#1A1A1A] text-[#F4F4F0] px-6 py-4 flex justify-between items-center border-[#F4F4F0]">
-        <div class="flex items-center gap-3 text-xl md:text-3xl font-black tracking-tight uppercase">
-            <img src="favicon.png" alt="Logo" class="w-7 h-7 md:w-8 md:h-8">
-            <span>VOTA PSOE</span>
-        </div>
-        <div class="text-sm font-bold tracking-widest uppercase opacity-80">
+  <section class="min-h-[100svh] grid grid-cols-1 lg:grid-cols-[1fr_420px] pt-[60px]">
+    <!-- LEFT -->
+    <div
+      class="bg-red flex flex-col justify-end p-7 lg:p-16 lg:pb-14 pt-[100px] min-h-[70svh] lg:min-h-0 relative overflow-hidden">
+      <div
+        class="absolute rounded-full border-[1.5px] border-white/[0.12] pointer-events-none w-[480px] h-[480px] -top-[180px] -right-[160px]">
+      </div>
+      <div
+        class="absolute rounded-full border-[1.5px] border-white/[0.12] pointer-events-none w-[300px] h-[300px] -top-[60px] -right-[20px]">
+      </div>
 
-        </div>
-    </header>
+      <span
+        class="absolute top-[72px] left-7 lg:left-16 text-[0.6rem] font-bold tracking-[0.3em] uppercase text-white/50 opacity-0 animate-fade-up [animation-delay:0.1s]">
+        <span id="eyebrow-year"></span>  </span>
 
-    <main class="flex-grow flex flex-col lg:flex-row w-full max-w-[1600px] mx-auto min-h-[calc(100vh-64px)]">
+      <h1
+        class="relative z-10 font-display font-black text-[clamp(4rem,8vw,8.5rem)] leading-[0.88] tracking-[-0.03em] uppercase text-white">
+        <span class="block opacity-0 animate-slide-up [animation-delay:0.2s]">España</span>
+        <span class="block opacity-0 animate-slide-up [animation-delay:0.38s]">
+          <span class="">Avanza</span>
+        </span>
+      </h1>
 
-        <div
-            class="w-full lg:w-4/5 bg-[#1a1a1a] p-8 md:p-16 flex flex-col justify-between border-b-8 lg:border-b-0 lg:border-r-8 border-[#1A1A1A]">
-            <div class="flex-grow flex items-center justify-center text-center pb-8 md:pb-0">
-                <h1
-                    class="text-[5rem] sm:text-[8rem] lg:text-[12rem] font-black leading-[0.8] tracking-tighter uppercase text-[#f6db71] m-0 flex flex-col">
-                    <span
-                        class="-translate-x-4 md:-translate-x-8 lg:-translate-x-12 -translate-y-2 md:-translate-y-10 lg:-translate-y-36">ESPAÑA</span>
-                    <span
-                        class="text-[#ba0505] translate-x-4 md:translate-x-8 lg:translate-x-12 translate-y-2 md:translate-y-10 lg:translate-y-16">AVANZA</span>
-                </h1>
-            </div>
-            <p
-                class="w-full italic text-right text-2xl md:text-4xl font-extrabold uppercase tracking-tight text-[#f2f2f2] leading-none mt-auto">
-                Tú también!
-            </p>
-        </div>
+      <p
+        class="relative z-10 mt-7 font-display font-medium text-[1rem] leading-[1.65] text-white/[0.85] max-w-[420px] opacity-0 animate-fade-up [animation-delay:0.55s]">
+        Europa se enfrenta a una encrucijada histórica. Mientras el autoritarismo avanza y las democracias retroceden, España se erige como la última trinchera de la libertad y el orden constitucional.<br>Defendamos nuestro lugar en el nuevo orden mundial.
+      </p>
 
-        <div class="w-full lg:w-2/5 flex flex-col">
+      <div
+        class="flex items-end justify-between mt-12 lg:mt-[48px] relative z-10 opacity-0 animate-fade-up [animation-delay:0.7s]">
+        <span class="font-display font-bold text-[4rem] leading-none tracking-[-0.04em] text-white/15"
+          id="year-big"></span>
+        <span
+          class="text-[0.6rem] font-bold tracking-[0.22em] uppercase text-white/[0.38] [writing-mode:vertical-rl]">Scroll
+          ↓</span>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="bg-white flex flex-col border-t lg:border-t-0 lg:border-l border-black/[0.07]">
+      <div
+        class="flex-1 flex flex-col justify-center py-12 px-7 lg:py-[64px] lg:px-[48px] opacity-0 animate-fade-in [animation-delay:0.45s]">
+        <p class="text-[0.6rem] font-bold tracking-[0.28em] uppercase text-red mb-3.5">El momento es decisivo</p>
+        <h2 class="font-display font-black text-[1.85rem] leading-[1.05] tracking-[-0.025em] uppercase text-ink mb-2.5">
+          Frente<br>a la<br>reacción</h2>
+        <p class="text-[0.82rem] text-mid leading-[1.65] mb-9">
+          El repliegue democrático es una amenaza real. No podemos permitir que la sombra del autoritarismo destruya lo que tantas generaciones construyeron. España no retrocede. Únete a la resistencia de las instituciones.
+        </p>
+
+        <form id="signup-form" action="https://submit-form.com/5K4dK3TQC">
+          <label class="block text-[0.6rem] font-bold tracking-[0.22em] uppercase text-mid mb-2" for="email">Correo
+            electrónico</label>
+          <input
+            class="w-full py-3.5 px-4 border-[1.5px] border-black/[0.12] bg-cream font-sans text-[0.95rem] font-medium text-ink transition-colors duration-200 placeholder:text-black/[0.28] focus:outline-none focus:border-red focus:bg-white"
+            type="email" id="email" name="email" placeholder="tu@correo.es" required autocomplete="email" />
+
+          <button
+            class="w-full mt-5 bg-red text-white border-0 py-[18px] px-6 font-display font-bold text-[0.75rem] tracking-[0.1em] uppercase cursor-pointer relative overflow-hidden group disabled:opacity-50 disabled:cursor-wait"
+            type="submit" id="signup-btn">
             <div
-                class="bg-[#ba0505] flex flex-col justify-center relative rounded-none lg:rounded-l-3xl overflow-hidden flex-grow">
-                <div class="p-8 md:p-16 flex flex-col justify-center h-full">
-                    <h2
-                        class="text-[#f6db71] text-4xl md:text-5xl font-black uppercase tracking-tighter leading-none mb-10">
-                        SÉ PARTE<br>DEL PLAN.
-                    </h2>
-
-                    <form id="signup-form" action="https://submit-form.com/5K4dK3TQC"
-                        class="w-full flex flex-col gap-8">
-                        <div class="relative">
-                            <label for="email"
-                                class="block text-[#ffffff] font-bold uppercase tracking-widest text-xs mb-2"> </label>
-                            <input type="email" id="email" name="email" placeholder="SU CORREO" required
-                                class="bureaucratic-input w-full text-2xl md:text-3xl font-bold uppercase tracking-wide py-2 transition-all" />
-                        </div>
-
-                        <button type="submit" id="signup-btn"
-                            class="w-full bg-[#1A1A1A] text-[#F4F4F0] font-black uppercase tracking-[0.15em] text-xl py-6 hover:bg-[#f6db71] hover:text-[#1a1a1a] transition-colors duration-300">
-                            HOJA DE RUTA →
-                        </button>
-
-                        <p id="signup-error"
-                            class="hidden text-[#E30613] font-bold text-sm uppercase tracking-wide border-l-4 border-[#E30613] pl-3">
-                            Error de validación. Inténtelo de nuevo.
-                        </p>
-                    </form>
-                </div>
+              class="absolute inset-0 bg-red-mid scale-x-0 origin-left transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100">
             </div>
+            <span class="relative z-10">Defender la democracia →</span>
+          </button>
 
-            <div class="bg-[#1A1A1A] p-6 text-[#F4F4F0] w-full mt-auto shrink-0">
-                <div
-                    class="text-xs font-bold tracking-widest uppercase flex flex-col md:flex-row justify-between gap-4">
-                    <span>INICIATIVA NO ASOCIADA AL PSOE</span>
-                    <span><a href="mailto:hola@votapsoe.es"
-                            class="hover:text-[#f6db71] text-[#E30613] transition-colors">hola@votapsoe.es</a></span>
-                    <span id="year-label"></span>
-                </div>
-            </div>
-        </div>
+          <p class="hidden mt-3 text-[0.68rem] font-bold tracking-[0.1em] uppercase text-red pl-2.5 border-l-2 border-red"
+            id="signup-error">Error al enviar. Inténtalo de nuevo.</p>
+          <p class="mt-4 text-[0.68rem] text-mid leading-[1.6]">Sin spam. Puedes darte de baja cuando quieras.
+            Iniciativa no afiliada al PSOE.</p>
+        </form>
+      </div>
 
-    </main>
+      <div class=" py-4 px-7 lg:py-5 lg:px-12 border-t border-black/[0.07] flex flex-col gap-1">
+        <!--span class="text-[0.6rem] font-medium tracking-[0.18em] uppercase text-black/30">Iniciativa no asociada al
+          PSOE</span-->
+        <a class="text-[0.7rem] text-red-600 font-bold tracking-[0.18em] uppercase text-black/30 no-underline hover:text-black transition-colors"
+          href="mailto:hola@votapsoe.es">hola@votapsoe.es</a>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        document.getElementById('year-label').textContent = new Date().getFullYear();
 
-        document.getElementById('signup-form').addEventListener('submit', async function (e) {
-            e.preventDefault();
-            const form = e.target;
-            const btn = document.getElementById('signup-btn');
-            const error = document.getElementById('signup-error');
 
-            const originalBtnText = btn.textContent;
-            btn.textContent = 'PROCESANDO DATOS...';
-            btn.disabled = true;
-            btn.classList.add('opacity-50', 'cursor-wait');
-            error.classList.add('hidden');
+  <!-- PILLARS -->
+  <div class="grid grid-cols-2 lg:grid-cols-4">
+    <div
+      class="group p-10 lg:px-9 lg:py-10 border-r border-t lg:border-r border-black/[0.08] relative overflow-hidden bg-cream hover:bg-white transition-colors duration-200">
+      <div class="font-display font-black text-[0.58rem] tracking-[0.2em] text-red mb-3.5">01</div>
+      <div class="font-display font-bold text-[0.95rem] tracking-[-0.02em] uppercase text-ink leading-[1.15] mb-2.5">
+        Pacto<br>Social</div>
+      <div class="text-[0.77rem] text-mid leading-[1.65]">Frente a quienes buscan el colapso del estado para imponer la ley del más fuerte, oponemos un blindaje absoluto de lo público y la seguridad ciudadana.</div>
+      <div
+        class="absolute bottom-0 left-0 h-[3px] w-0 bg-red transition-all duration-[350ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-full">
+      </div>
+    </div>
 
-            const payload = {};
-            new FormData(form).forEach((v, k) => payload[k] = v);
+    <div
+      class="group p-10 lg:px-9 lg:py-10 border-r-0 lg:border-r border-t border-black/[0.08] relative overflow-hidden bg-cream hover:bg-white transition-colors duration-200">
+      <div class="font-display font-black text-[0.58rem] tracking-[0.2em] text-red mb-3.5">02</div>
+      <div class="font-display font-bold text-[0.95rem] tracking-[-0.02em] uppercase text-ink leading-[1.15] mb-2.5">
+        Soberanía<br>Nacional</div>
+      <div class="text-[0.77rem] text-mid leading-[1.65]">Nuestros hogares y nuestro futuro no están en venta a fondos extranjeros. Construimos una España fuerte, soberana y dueña de su propio destino en tiempos de crisis.</div>
+      <div
+        class="absolute bottom-0 left-0 h-[3px] w-0 bg-red transition-all duration-[350ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-full">
+      </div>
+    </div>
 
-            try {
-                const res = await fetch(form.action, {
-                    method: 'POST',
-                    body: JSON.stringify(payload),
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json'
-                    }
-                });
-                if (res.ok) {
-                    form.innerHTML = `
-                        <div class="border-4 border-[#1A1A1A] p-6 text-[#1A1A1A]">
-                            <p class="font-black text-3xl uppercase tracking-tighter mb-2">BIENVENIDO <br>A LA VANGUARDIA</p>
-                            <p class="font-bold uppercase tracking-widest text-sm">El futuro empieza en tu bandeja de entrada.</p>
-                        </div>`;
-                } else {
-                    throw new Error('Response ' + res.status);
-                }
-            } catch (err) {
-                console.error(err);
-                btn.textContent = originalBtnText;
-                btn.disabled = false;
-                btn.classList.remove('opacity-50', 'cursor-wait');
-                error.classList.remove('hidden');
-            }
+    <div
+      class="group p-10 lg:px-9 lg:py-10 border-r border-t lg:border-r border-black/[0.08] relative overflow-hidden bg-cream hover:bg-white transition-colors duration-200">
+      <div class="font-display font-black text-[0.58rem] tracking-[0.2em] text-red mb-3.5">03</div>
+      <div class="font-display font-bold text-[0.95rem] tracking-[-0.02em] uppercase text-ink leading-[1.15] mb-2.5">
+        Soberanía<br>Industrial</div>
+      <div class="text-[0.77rem] text-mid leading-[1.65]">Garantizamos la independencia estratégica de España en el nuevo orden mundial. Política industrial agresiva para liderar las tecnologías clave del futuro, sin depender de regímenes autócratas ni cadenas de suministro externas.</div>
+      <div
+        class="absolute bottom-0 left-0 h-[3px] w-0 bg-red transition-all duration-[350ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-full">
+      </div>
+    </div>
+
+    <div
+      class="group p-10 lg:px-9 lg:py-10 border-r-0 border-t lg:border-r-0 border-black/[0.08] relative overflow-hidden bg-cream hover:bg-white transition-colors duration-200">
+      <div class="font-display font-black text-[0.58rem] tracking-[0.2em] text-red mb-3.5">04</div>
+      <div class="font-display font-bold text-[0.95rem] tracking-[-0.02em] uppercase text-ink leading-[1.15] mb-2.5">
+        Bastión de<br>Libertades</div>
+      <div class="text-[0.77rem] text-mid leading-[1.65]">Cuando el mundo sucumbe a la intolerancia y al odio organizado, España se mantiene como una fortaleza inexpugnable para los derechos civiles y la diversidad.</div>
+      <div
+        class="absolute bottom-0 left-0 h-[3px] w-0 bg-red transition-all duration-[350ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-full">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const yr = new Date().getFullYear();
+    document.getElementById('eyebrow-year').textContent = yr;
+    document.getElementById('year-big').textContent = yr;
+
+    document.getElementById('signup-form').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const form = e.target;
+      const btn = document.getElementById('signup-btn');
+      const err = document.getElementById('signup-error');
+      const s = btn.querySelector('span.relative');
+      const orig = s.textContent;
+
+      s.textContent = 'Enviando…';
+      btn.disabled = true;
+      err.classList.add('hidden');
+
+      const payload = {};
+      new FormData(form).forEach((v, k) => payload[k] = v);
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: JSON.stringify(payload),
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
         });
-    </script>
+        if (res.ok) {
+          form.innerHTML = `
+          <div class="border-l-[3px] border-red pl-5">
+            <h3 class="font-display font-black text-[1.2rem] uppercase text-ink tracking-[-0.02em] mb-2">¡Te has unido a la defensa!</h3>
+            <p class="text-[0.82rem] text-mid leading-[1.6]">Gracias por dar un paso al frente para proteger nuestra democracia de la ola reaccionaria. Contactaremos contigo con nuestras próximas acciones.</p>
+          </div>`;
+        } else throw new Error(res.status);
+      } catch {
+        s.textContent = orig;
+        btn.disabled = false;
+        err.classList.remove('hidden');
+      }
+    });
+  </script>
 </body>
 
 </html>
