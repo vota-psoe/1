@@ -159,7 +159,7 @@
                         <div
                             class="absolute inset-0 bg-red-mid scale-x-0 origin-left transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100">
                         </div>
-                        <span class="relative z-10">Defender la democracia →</span>
+                        <span class="relative z-10">Únete al progreso →</span>
                     </button>
 
                     <p class="hidden mt-3 text-[0.68rem] font-bold tracking-[0.1em] uppercase text-red pl-2.5 border-l-2 border-red"
@@ -181,7 +181,7 @@
 
 
     <!-- PILLARS -->
-    <div class="grid grid-cols-2 lg:grid-cols-3">
+    <div class="grid grid-cols-2 lg:grid-cols-4">
         <div
             class="group p-10 lg:px-9 lg:py-10 border-r border-t lg:border-r border-black/[0.08] relative overflow-hidden bg-cream hover:bg-white transition-colors duration-200">
             <div class="font-display font-black text-[0.58rem] tracking-[0.2em] text-red mb-3.5">01</div>
@@ -208,7 +208,7 @@
         </div>
 
         <div
-            class="group p-10 lg:px-9 lg:py-10 border-r border-t lg:border-r-0 border-black/[0.08] relative overflow-hidden bg-cream hover:bg-white transition-colors duration-200">
+            class="group p-10 lg:px-9 lg:py-10 border-r border-t lg:border-r border-black/[0.08] relative overflow-hidden bg-cream hover:bg-white transition-colors duration-200">
             <div class="font-display font-black text-[0.58rem] tracking-[0.2em] text-red mb-3.5">03</div>
             <div
                 class="font-display font-bold text-[0.95rem] tracking-[-0.02em] uppercase text-ink leading-[1.15] mb-2.5">
@@ -220,7 +220,7 @@
         </div>
 
         <div
-            class="group p-10 lg:px-9 lg:py-10 border-r-0 border-t lg:border-r border-black/[0.08] relative overflow-hidden bg-cream hover:bg-white transition-colors duration-200">
+            class="group p-10 lg:px-9 lg:py-10 border-r-0 border-t lg:border-r-0 border-black/[0.08] relative overflow-hidden bg-cream hover:bg-white transition-colors duration-200">
             <div class="font-display font-black text-[0.58rem] tracking-[0.2em] text-red mb-3.5">04</div>
             <div
                 class="font-display font-bold text-[0.95rem] tracking-[-0.02em] uppercase text-ink leading-[1.15] mb-2.5">
@@ -244,7 +244,7 @@
         </div>
 
         <div
-            class="group p-10 lg:px-9 lg:py-10 border-r-0 border-t lg:border-r-0 border-black/[0.08] relative overflow-hidden bg-cream hover:bg-white transition-colors duration-200">
+            class="group p-10 lg:px-9 lg:py-10 border-r-0 border-t lg:border-r border-black/[0.08] relative overflow-hidden bg-cream hover:bg-white transition-colors duration-200">
             <div class="font-display font-black text-[0.58rem] tracking-[0.2em] text-red mb-3.5">06</div>
             <div
                 class="font-display font-bold text-[0.95rem] tracking-[-0.02em] uppercase text-ink leading-[1.15] mb-2.5">
@@ -254,12 +254,38 @@
                 class="absolute bottom-0 left-0 h-[3px] w-0 bg-red transition-all duration-[350ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-full">
             </div>
         </div>
+
+        <div
+            class="group p-10 lg:px-9 lg:py-10 border-r border-t lg:border-r border-black/[0.08] relative overflow-hidden bg-cream hover:bg-white transition-colors duration-200">
+            <div class="font-display font-black text-[0.58rem] tracking-[0.2em] text-red mb-3.5">07</div>
+            <div
+                class="font-display font-bold text-[0.95rem] tracking-[-0.02em] uppercase text-ink leading-[1.15] mb-2.5">
+                Migración<br>Pragmática</div>
+            <div class="text-[0.77rem] text-mid leading-[1.65]">Frente a quienes avivan llamas nacionalistas e identitarias, defendemos establecer rápidamente marcos para atraer y acoger talento necesario. Retrasar esto significa perder crecimiento económico y dinamismo social frente a los países de nuestro entorno.</div>
+            <div
+                class="absolute bottom-0 left-0 h-[3px] w-0 bg-red transition-all duration-[350ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-full">
+            </div>
+        </div>
+
+        <div
+            class="group p-10 lg:px-9 lg:py-10 border-r-0 border-t lg:border-r-0 border-black/[0.08] relative overflow-hidden bg-cream hover:bg-white transition-colors duration-200">
+            <div class="font-display font-black text-[0.58rem] tracking-[0.2em] text-red mb-3.5">08</div>
+            <div
+                class="font-display font-bold text-[0.95rem] tracking-[-0.02em] uppercase text-ink leading-[1.15] mb-2.5">
+                Fiscalidad<br>Justa</div>
+            <div class="text-[0.77rem] text-mid leading-[1.65]">Ninguno de estos proyectos es posible sin un sistema tributario donde quienes más tienen aporten lo que les corresponde. Acabaremos con los paraísos fiscales internos y la elusión de las grandes fortunas para asegurar el progreso común.</div>
+            <div
+                class="absolute bottom-0 left-0 h-[3px] w-0 bg-red transition-all duration-[350ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-full">
+            </div>
+        </div>
     </div>
 
     <script>
         const yr = new Date().getFullYear();
-        document.getElementById('eyebrow-year').textContent = yr;
-        document.getElementById('year-big').textContent = yr;
+        const eyebrow = document.getElementById('eyebrow-year');
+        if (eyebrow) eyebrow.textContent = yr;
+        const yearBig = document.getElementById('year-big');
+        if (yearBig) yearBig.textContent = yr;
 
         document.getElementById('signup-form').addEventListener('submit', async function (e) {
             e.preventDefault();
@@ -284,12 +310,13 @@
                 });
                 if (res.ok) {
                     form.innerHTML = `
-          <div class="border-l-[3px] border-red pl-5">
-            <h3 class="font-display font-black text-[1.2rem] uppercase text-ink tracking-[-0.02em] mb-2">¡Te has unido a la defensa!</h3>
-            <p class="text-[0.82rem] text-mid leading-[1.6]">Gracias por dar un paso al frente para proteger nuestra democracia de la ola reaccionaria. Contactaremos contigo con nuestras próximas acciones.</p>
+          <div class="border-l-[3px] border-red py-1 pl-5 animate-fade-in">
+            <h3 class="font-display font-black text-[1.2rem] uppercase text-ink tracking-[-0.02em] mb-2">¡Gracias por unirte!</h3>
+            <p class="text-[0.82rem] text-mid leading-[1.6]">Has dado el paso para apoyar la construcción de un país más justo, avanzado e igualitario. Pronto contactaremos contigo con nuestras próximas acciones.</p>
           </div>`;
                 } else throw new Error(res.status);
-            } catch {
+            } catch (error) {
+                console.error(error);
                 s.textContent = orig;
                 btn.disabled = false;
                 err.classList.remove('hidden');
