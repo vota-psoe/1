@@ -55,13 +55,542 @@
             }
         }
     </script>
+
+    <style>
+        /* ── BENTO PILLARS ─────────────────────────────────────────────── */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        :root {
+            --red: #D0021B;
+            --red-dk: #9e0114;
+            --cream: #FAF8F4;
+            --ink: #1C1C1C;
+            --mid: #6B6B6B;
+            --b: 2px solid #1C1C1C;
+            --border: rgb(0, 0, 0);
+
+        }
+
+        /* SECTION HEADER STRIP */
+        .section-head {
+
+            display: flex;
+            align-items: stretch;
+            border-bottom: var(--b);
+            border-left: var(--b);
+            border-right: var(--b);
+            border-top: var(--b);
+        }
+
+        .sh-label {
+            display: flex;
+            align-items: center;
+            padding: 16px 28px;
+            border-right: var(--b);
+            font-family: 'Unbounded', sans-serif;
+            font-weight: 900;
+            font-size: 0.58rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--red);
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .sh-meta {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            padding: 16px 28px;
+            font-size: 0.72rem;
+            color: var(--mid);
+        }
+
+        .sh-count {
+            display: flex;
+            align-items: center;
+            padding: 16px 28px;
+            border-left: var(--b);
+            font-family: 'Unbounded', sans-serif;
+            font-weight: 900;
+            font-size: 0.58rem;
+            letter-spacing: 0.22em;
+            color: rgba(28, 28, 28, 0.22);
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        /* BENTO GRID */
+        .bento {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: 370px 270px 310px;
+            grid-template-areas:
+                "c1 c1 c1 c2"
+                "c3 c4 c5 c6"
+                "c7 c8 c8 c8";
+            border-left: var(--b);
+            border-top: var(--b);
+        }
+
+        /* BASE CARD */
+        .bento-card {
+            border-right: var(--b);
+            border-bottom: var(--b);
+            background: var(--cream);
+            padding: 32px 30px;
+            position: relative;
+            overflow: hidden;
+            transition: background 0.12s;
+            display: flex;
+            flex-direction: column;
+            cursor: default;
+        }
+
+        .bento-card:hover {
+            background: #fff;
+        }
+
+        .bc1 {
+            grid-area: c1;
+        }
+
+        .bc2 {
+            grid-area: c2;
+        }
+
+        .bc3 {
+            grid-area: c3;
+        }
+
+        .bc4 {
+            grid-area: c4;
+        }
+
+        .bc5 {
+            grid-area: c5;
+        }
+
+        .bc6 {
+            grid-area: c6;
+        }
+
+        .bc7 {
+            grid-area: c7;
+        }
+
+        .bc8 {
+            grid-area: c8;
+        }
+
+        /* COLOR VARIANTS */
+        .bv-red {
+            background: var(--red);
+            color: #fff;
+        }
+
+        .bv-red:hover {
+            background: var(--red-dk);
+        }
+
+        .bv-red .b-idx {
+            color: rgba(255, 255, 255, 0.32);
+        }
+
+        .bv-red .b-ttl {
+            color: #fff;
+        }
+
+        .bv-red .b-body {
+            color: rgba(255, 255, 255, 0.78);
+        }
+
+        .bv-red .b-ghost {
+            opacity: 0.09;
+            color: #fff;
+        }
+
+        .bv-red .b-sep {
+            background: rgba(255, 255, 255, 0.28);
+        }
+
+        .bv-red .b-sval {
+            color: #fff;
+        }
+
+        .bv-red .b-slbl {
+            color: rgba(255, 255, 255, 0.48);
+        }
+
+        .bv-red .b-badge {
+            background: rgba(255, 255, 255, 0.16);
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .bv-ink {
+            background: var(--ink);
+            color: #fff;
+        }
+
+        .bv-ink:hover {
+            background: #282828;
+        }
+
+        .bv-ink .b-idx {
+            color: rgba(255, 255, 255, 0.28);
+        }
+
+        .bv-ink .b-ttl {
+            color: #fff;
+        }
+
+        .bv-ink .b-body {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .bv-ink .b-ghost {
+            opacity: 0.07;
+            color: #fff;
+        }
+
+        .bv-ink .b-sep {
+            background: rgba(255, 255, 255, 0.22);
+        }
+
+        .bv-ink .b-sval {
+            color: #fff;
+        }
+
+        .bv-ink .b-slbl {
+            color: rgba(255, 255, 255, 0.45);
+        }
+
+        .bv-ink .b-badge {
+            background: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        /* GHOST NUMBER */
+        .b-ghost {
+            position: absolute;
+            right: -16px;
+            bottom: -36px;
+            font-family: 'Unbounded', sans-serif;
+            font-weight: 900;
+            font-size: 11rem;
+            line-height: 1;
+            letter-spacing: -0.06em;
+            color: var(--ink);
+            opacity: 0.04;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .bc1 .b-ghost {
+            font-size: 22rem;
+            right: -40px;
+            bottom: -70px;
+        }
+
+        .bc8 .b-ghost {
+            font-size: 16rem;
+        }
+
+        /* BADGE */
+        .b-badge {
+            display: inline-flex;
+            align-items: center;
+            font-family: 'Unbounded', sans-serif;
+            font-weight: 900;
+            font-size: 0.54rem;
+            letter-spacing: 0.2em;
+            padding: 5px 10px;
+            background: rgba(28, 28, 28, 0.07);
+            color: var(--mid);
+            width: fit-content;
+            margin-bottom: 18px;
+            flex-shrink: 0;
+        }
+
+        /* TYPOGRAPHY */
+        .b-ttl {
+            font-family: 'Unbounded', sans-serif;
+            font-weight: 900;
+            font-size: clamp(0.95rem, 1.5vw, 1.25rem);
+            line-height: 1.1;
+            letter-spacing: -0.025em;
+            text-transform: uppercase;
+            color: var(--ink);
+            margin-bottom: 12px;
+            flex-shrink: 0;
+        }
+
+        .b-body {
+            font-size: 0.79rem;
+            line-height: 1.72;
+            color: var(--mid);
+            flex: 1;
+        }
+
+        .b-sep {
+            width: 24px;
+            height: 2px;
+            background: var(--red);
+            margin: 14px 0;
+            flex-shrink: 0;
+        }
+
+        /* STATS */
+        .b-sval {
+            font-family: 'Unbounded', sans-serif;
+            font-weight: 900;
+            letter-spacing: -0.04em;
+            line-height: 1;
+            color: #fff;
+        }
+
+        .b-slbl {
+            font-size: 0.6rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.48);
+            margin-top: 5px;
+        }
+
+        /* HERO c1 */
+        .bc1 {
+            padding: 44px 48px;
+        }
+
+        .c1-inner {
+            display: flex;
+            height: 100%;
+            gap: 60px;
+        }
+
+        .c1-left {
+            flex: 0 0 auto;
+            width: 46%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .c1-right {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .bc1 .eyebrow {
+            display: block;
+            font-family: 'Unbounded', sans-serif;
+            font-weight: 900;
+            font-size: 0.57rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.38);
+            margin-bottom: 18px;
+        }
+
+        .bc1 .b-ttl {
+            font-size: clamp(3rem, 5.8vw, 5.8rem);
+            line-height: 0.88;
+            letter-spacing: -0.045em;
+            margin-bottom: 0;
+        }
+
+        .bc1 .b-body {
+            font-size: 0.84rem;
+            line-height: 1.72;
+            flex: initial;
+            margin-bottom: 24px;
+        }
+
+        .c1-stats {
+            display: flex;
+            gap: 28px;
+            padding-top: 22px;
+            border-top: 1px solid rgba(255, 255, 255, 0.16);
+        }
+
+        .c1-stats .b-sval {
+            font-size: 2rem;
+        }
+
+        /* WIDE c8 */
+        .bc8 {
+            padding: 36px 40px;
+        }
+
+        .c8-inner {
+            display: flex;
+            height: 100%;
+            gap: 0;
+        }
+
+        .c8-left {
+            flex: 0 0 auto;
+            width: 44%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding-right: 44px;
+            border-right: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .c8-right {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding-left: 44px;
+            gap: 16px;
+        }
+
+        .bc8 .b-ttl {
+            font-size: clamp(1.7rem, 3.2vw, 3.2rem);
+            line-height: 0.92;
+            letter-spacing: -0.045em;
+        }
+
+        .c8-stat {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            text-align: center;
+        }
+
+        .c8-stat .b-sval {
+            font-size: 1.9rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1080px) {
+            .bento {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: auto;
+                grid-template-areas:
+                    "c1 c1"
+                    "c2 c3"
+                    "c4 c5"
+                    "c6 c7"
+                    "c8 c8";
+            }
+
+            .c1-inner {
+                flex-direction: column;
+                gap: 28px;
+            }
+
+            .c1-left {
+                width: 100%;
+            }
+
+            .bc1 .b-ttl {
+                font-size: clamp(2.6rem, 8vw, 4rem);
+            }
+
+            .c8-inner {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .c8-left {
+                width: 100%;
+                border-right: none;
+                padding-right: 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+                padding-bottom: 24px;
+            }
+
+            .c8-right {
+                padding-left: 0;
+                padding-top: 28px;
+                justify-content: flex-start;
+                gap: 32px;
+            }
+
+            .c8-stat {
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 540px) {
+            .bento {
+                grid-template-columns: 1fr;
+                grid-template-areas: "c1" "c2" "c3" "c4" "c5" "c6" "c7" "c8";
+            }
+        }
+
+        .section-header {
+            /*  border-top: 3px solid var(--border); */
+            border-bottom: 1px solid var(--border);
+            padding: 36px 40px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .section-header .eyebrow {
+            font-family: 'Unbounded', sans-serif;
+            font-size: 0.55rem;
+            font-weight: 700;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--red);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+
+        .section-header .eyebrow::before {
+            content: '';
+            display: block;
+            width: 22px;
+            height: 1.5px;
+            background: var(--red);
+            flex-shrink: 0;
+        }
+
+        .section-header h2 {
+            font-family: 'Unbounded', sans-serif;
+            font-weight: 900;
+            font-size: clamp(2rem, 4.5vw, 3.8rem);
+            line-height: 0.92;
+            letter-spacing: -0.035em;
+            text-transform: uppercase;
+            color: var(--ink);
+        }
+
+        .section-header h2 em {
+            font-style: normal;
+            color: var(--red);
+        }
+
+        .section-header p {
+            font-size: 0.8rem;
+            color: var(--mid);
+            line-height: 1.7;
+            max-width: 380px;
+            text-align: right;
+        }
+    </style>
 </head>
 
 <body class="font-sans bg-white text-ink overflow-x-hidden selection:bg-[#1a1a1a] selection:text-red">
 
     <header
         class="fixed top-0 left-0 right-0 z-[100] bg-white  border-black/[0.08] flex items-center  h-[60px] overflow-hidden">
-       <!-- Navbar Left -->
+        <!-- Navbar Left -->
         <div
             class="text-white flex items-center  gap-2 font-display font-black text-[1.5rem] tracking-tight uppercase text-ink shrink-0 bg-black relative z-10 pr-3">
             <img src="favicon.webp" alt="Logo" class="bg-red-950 w-[60px] h-[60px] pt-1 pr-1 shrink-0 ">
@@ -92,8 +621,6 @@
                 Vota PSOE <span class="inline-block mx-[22px] text-red">●</span>
             </div>
         </div>
-        <!-- Navbar Right -->
-        <!--span class="hidden md:block text-[0.65rem] font-medium tracking-[0.18em] uppercase text-mid shrink-0 bg-white relative z-10 pl-6">España Avanza</span-->
     </header>
 
     <section class="min-h-[80svh] grid grid-cols-1 lg:grid-cols-[1fr_420px] pt-[60px]">
@@ -113,7 +640,9 @@
 
             <h1
                 class="relative z-10 font-display font-black text-[clamp(4rem,8vw,8.5rem)] leading-[0.88] tracking-[-0.03em] uppercase text-white">
-                <span class="block text-[clamp(1.2rem,2.5vw,2.5rem)] tracking-normal mb-1 opacity-0 animate-slide-up [animation-delay:0.1s]">con el psoe,</span>
+                <span
+                    class="block text-[clamp(1.2rem,2.5vw,2.5rem)] tracking-normal mb-1 opacity-0 animate-slide-up [animation-delay:0.1s]">con
+                    el psoe,</span>
                 <span class="block opacity-0 animate-slide-up [animation-delay:0.2s]">España</span>
                 <span class="block opacity-0 animate-slide-up [animation-delay:0.38s]">
                     <span class="">Avanza</span>
@@ -122,16 +651,13 @@
 
             <p
                 class="relative z-10 mt-7 font-light font-medium text-[1rem] leading-[1.65] text-white/[0.85] max-w-[420px] opacity-0 animate-fade-up [animation-delay:0.55s]">
-                Europa y el mundo atraviesan un momento de gran transformación. <br>Frente a la amenaza de una Internacional Ultraderechista, y la complacencia de la derecha tradicional con ella, España se erige como un referente de progreso, derechos y soberanía compartida.<br>Defendamos nuestro modelo de país.
+                Europa y el mundo atraviesan un momento de gran transformación. <br>Frente a la amenaza de una
+                Internacional Ultraderechista, y la complacencia de la derecha tradicional con ella, España se erige
+                como un referente de progreso, derechos y soberanía compartida.<br>Defendamos nuestro modelo de país.
             </p>
 
             <div
                 class="flex items-end justify-between mt-12 lg:mt-[48px] relative z-10 opacity-0 animate-fade-up [animation-delay:0.7s]">
-                <!--span class="font-display font-bold text-[4rem] leading-none tracking-[-0.04em] text-white/15"
-          id="year-big"></span>
-        <span
-          class="text-[0.6rem] font-bold tracking-[0.22em] uppercase text-white/[0.38] [writing-mode:vertical-rl]">Scroll
-          ↓</span-->
             </div>
         </div>
 
@@ -145,7 +671,10 @@
                     class="font-display font-black text-[1.85rem] leading-[1.05] tracking-[-0.025em] uppercase text-ink mb-2.5">
                     Proteger<br>nuestro<br>futuro</h2>
                 <p class="text-[0.82rem] text-mid leading-[1.65] mb-9">
-                    La extrema derecha forma parte de redes internacionales que amenazan nuestros intereses y nuestro modelo de convivencia, valiéndose de una derecha cada vez más radicalizada que asume sus postulados. Frente a su ruido, oponemos un modelo basado en la justicia social, independencia energética y libertades.
+                    La extrema derecha forma parte de redes internacionales que amenazan nuestros intereses y nuestro
+                    modelo de convivencia, valiéndose de una derecha cada vez más radicalizada que asume sus postulados.
+                    Frente a su ruido, oponemos un modelo basado en la justicia social, independencia energética y
+                    libertades.
                 </p>
 
                 <form id="signup-form" action="https://submit-form.com/5K4dK3TQC">
@@ -172,9 +701,7 @@
                 </form>
             </div>
 
-            <div class=" py-4 px-7 lg:py-5 lg:px-12 border-t border-black/[0.07] flex flex-col gap-1">
-                <!--span class="text-[0.6rem] font-medium tracking-[0.18em] uppercase text-black/30">Iniciativa no asociada al
-          PSOE</span-->
+            <div class=" py-4 px-7 lg:py-5 lg:px-12 border-t border-b border-black/[0.07] flex flex-col gap-1">
                 <a class="text-[0.7rem] text-red-600 font-bold tracking-[0.18em] uppercase text-black/30 no-underline hover:text-black transition-colors"
                     href="mailto:hola@votapsoe.es">hola@votapsoe.es</a>
             </div>
@@ -182,113 +709,147 @@
     </section>
 
 
-
-    <!-- PILLARS -->
-    <div class="grid grid-cols-2 lg:grid-cols-4">
-        <div
-            class="group p-10 lg:px-9 lg:py-10 border-r border-t lg:border-r border-black/[0.08] relative overflow-hidden bg-cream hover:bg-white transition-colors duration-200">
-            <div class="font-display font-black text-[0.58rem] tracking-[0.2em] text-red mb-3.5">01</div>
-            <div
-                class="font-display font-bold text-[0.95rem] tracking-[-0.02em] uppercase text-ink leading-[1.15] mb-2.5">
-                Pacto<br>Social</div>
-            <div class="text-[0.77rem] text-mid leading-[1.65]">Un mercado sin reglas cívicas genera exclusión. Lo vemos con los alquileres turísticos y el modelo Airbnb, que expulsan a los vecinos de sus barrios. Defendemos al estado como garante de las reglas del juego que den lugar a  un marco que proteja a la mayoría y asegure el derecho a la vivienda.
-            </div>
-            <div
-                class="absolute bottom-0 left-0 h-[3px] w-0 bg-red transition-all duration-[350ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-full">
-            </div>
+    <!-- PILLARS (bento) -->
+    <div class="section-header bg-white">
+        <div>
+            <p class="eyebrow">Propuestas</p>
+            <h2>Ocho<br>pilares del<br><em>cambio</em></h2>
         </div>
-
-        <div
-            class="group p-10 lg:px-9 lg:py-10 border-r-0 lg:border-r border-t border-black/[0.08] relative overflow-hidden bg-cream hover:bg-white transition-colors duration-200">
-            <div class="font-display font-black text-[0.58rem] tracking-[0.2em] text-red mb-3.5">02</div>
-            <div
-                class="font-display font-bold text-[0.95rem] tracking-[-0.02em] uppercase text-ink leading-[1.15] mb-2.5">
-                Soberanía<br>Energética</div>
-            <div class="text-[0.77rem] text-mid leading-[1.65]">Nuestro progreso no puede depender de terceros. Impulsamos la independencia energética mediante nuestras propias fuentes renovables, garantizando precios accesibles y estabilidad para todos los ciudadanos frente a la volatilidad exterior.</div>
-            <div
-                class="absolute bottom-0 left-0 h-[3px] w-0 bg-red transition-all duration-[350ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-full">
-            </div>
-        </div>
-
-        <div
-            class="group p-10 lg:px-9 lg:py-10 border-r border-t lg:border-r border-black/[0.08] relative overflow-hidden bg-cream hover:bg-white transition-colors duration-200">
-            <div class="font-display font-black text-[0.58rem] tracking-[0.2em] text-red mb-3.5">03</div>
-            <div
-                class="font-display font-bold text-[0.95rem] tracking-[-0.02em] uppercase text-ink leading-[1.15] mb-2.5">
-                Soberanía<br>Industrial</div>
-            <div class="text-[0.77rem] text-mid leading-[1.65]">Impulsamos unas cadenas de suministro más resilientes y una reindustrialización verde decidida para que España y Europa ganen autonomía en los sectores estratégicos del mañana.</div>
-            <div
-                class="absolute bottom-0 left-0 h-[3px] w-0 bg-red transition-all duration-[350ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-full">
-            </div>
-        </div>
-
-        <div
-            class="group p-10 lg:px-9 lg:py-10 border-r-0 border-t lg:border-r-0 border-black/[0.08] relative overflow-hidden bg-cream hover:bg-white transition-colors duration-200">
-            <div class="font-display font-black text-[0.58rem] tracking-[0.2em] text-red mb-3.5">04</div>
-            <div
-                class="font-display font-bold text-[0.95rem] tracking-[-0.02em] uppercase text-ink leading-[1.15] mb-2.5">
-                Libertades y<br>Derechos</div>
-            <div class="text-[0.77rem] text-mid leading-[1.65]">Al contrario de lo que anuncian, el nuevo reaccionarismo en redes no trae mayor libertad, sino la imposición de una moral pública única y un tradicionalismo regresivo. Frente a esta falsa libertad, defendemos el derecho de cada español a construir su propio proyecto de vida.</div>
-            <div
-                class="absolute bottom-0 left-0 h-[3px] w-0 bg-red transition-all duration-[350ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-full">
-            </div>
-        </div>
-
-        <div
-            class="group p-10 lg:px-9 lg:py-10 border-r border-t lg:border-r border-black/[0.08] relative overflow-hidden bg-cream hover:bg-white transition-colors duration-200">
-            <div class="font-display font-black text-[0.58rem] tracking-[0.2em] text-red mb-3.5">05</div>
-            <div
-                class="font-display font-bold text-[0.95rem] tracking-[-0.02em] uppercase text-ink leading-[1.15] mb-2.5">
-                Progreso<br>Seguro</div>
-            <div class="text-[0.77rem] text-mid leading-[1.65]">Aprovechamos el potencial de la tecnología y la IA con límites éticos explícitos. Apostamos por una transición justa que proteja el empleo frente a la automatización masiva y garantice que nadie, especialmente nuestros mayores, se quede atrás por la brecha digital.</div>
-            <div
-                class="absolute bottom-0 left-0 h-[3px] w-0 bg-red transition-all duration-[350ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-full">
-            </div>
-        </div>
-
-        <div
-            class="group p-10 lg:px-9 lg:py-10 border-r-0 border-t lg:border-r border-black/[0.08] relative overflow-hidden bg-cream hover:bg-white transition-colors duration-200">
-            <div class="font-display font-black text-[0.58rem] tracking-[0.2em] text-red mb-3.5">06</div>
-            <div
-                class="font-display font-bold text-[0.95rem] tracking-[-0.02em] uppercase text-ink leading-[1.15] mb-2.5">
-                Futuro<br>Asegurado</div>
-            <div class="text-[0.77rem] text-mid leading-[1.65]">Frente a un reto demográfico real, la liberalización de las pensiones no es la respuesta. Proponemos un nuevo modelo que invierta a través de impuestos en proyectos de alto valor. Así, los ciudadanos se convierten en accionistas del progreso, logrando utilidades sólidas que sostengan el modelo público de pensiones.</div>
-            <div
-                class="absolute bottom-0 left-0 h-[3px] w-0 bg-red transition-all duration-[350ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-full">
-            </div>
-        </div>
-
-        <div
-            class="group p-10 lg:px-9 lg:py-10 border-r border-t lg:border-r border-black/[0.08] relative overflow-hidden bg-cream hover:bg-white transition-colors duration-200">
-            <div class="font-display font-black text-[0.58rem] tracking-[0.2em] text-red mb-3.5">07</div>
-            <div
-                class="font-display font-bold text-[0.95rem] tracking-[-0.02em] uppercase text-ink leading-[1.15] mb-2.5">
-                Migración<br>Pragmática</div>
-            <div class="text-[0.77rem] text-mid leading-[1.65]">Frente a quienes avivan llamas nacionalistas e identitarias, defendemos establecer rápidamente marcos para atraer y acoger talento necesario. Retrasar esto significa perder crecimiento económico y dinamismo social frente a los países de nuestro entorno.</div>
-            <div
-                class="absolute bottom-0 left-0 h-[3px] w-0 bg-red transition-all duration-[350ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-full">
-            </div>
-        </div>
-
-        <div
-            class="group p-10 lg:px-9 lg:py-10 border-r-0 border-t lg:border-r-0 border-black/[0.08] relative overflow-hidden bg-cream hover:bg-white transition-colors duration-200">
-            <div class="font-display font-black text-[0.58rem] tracking-[0.2em] text-red mb-3.5">08</div>
-            <div
-                class="font-display font-bold text-[0.95rem] tracking-[-0.02em] uppercase text-ink leading-[1.15] mb-2.5">
-                Fiscalidad<br>Justa</div>
-            <div class="text-[0.77rem] text-mid leading-[1.65]">Ninguno de estos proyectos es posible sin un sistema tributario donde quienes más tienen aporten lo que les corresponde. Acabaremos con los paraísos fiscales internos y la elusión de las grandes fortunas para asegurar el progreso común.</div>
-            <div
-                class="absolute bottom-0 left-0 h-[3px] w-0 bg-red transition-all duration-[350ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-full">
-            </div>
-        </div>
+        <p>No es un programa electoral. Es una hoja de ruta para la España que viene — construida sobre justicia,
+            autonomía y derechos reales.</p>
     </div>
+
+    <section class="bento">
+
+        <!-- 01 Pacto Social — hero, 3 cols -->
+        <div class="bento-card bv-red bc1">
+            <div class="c1-inner">
+                <div class="c1-left">
+                    <div>
+                        <span class="eyebrow">01 — Pilar fundamental</span>
+                        <h2 class="b-ttl">Pacto<br>Social</h2>
+                    </div>
+                    <div class="c1-stats">
+                        <div>
+                            <div class="b-sval">3.2M</div>
+                            <div class="b-slbl">Familias en riesgo</div>
+                        </div>
+                        <div>
+                            <div class="b-sval">+42%</div>
+                            <div class="b-slbl">Alquiler 2018–24</div>
+                        </div>
+                        <div>
+                            <div class="b-sval">1/3</div>
+                            <div class="b-slbl">Jóvenes sin acceso</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="c1-right">
+                    <p class="b-body">Un mercado sin reglas cívicas genera exclusión. Lo vemos con los alquileres
+                        turísticos y el modelo Airbnb, que expulsan a los vecinos de sus barrios. Defendemos al Estado
+                        como garante de las reglas del juego que protejan a la mayoría y aseguren el derecho a la
+                        vivienda como derecho fundamental, no como activo financiero.</p>
+                </div>
+            </div>
+            <div class="b-ghost">01</div>
+        </div>
+
+        <!-- 02 Energética — 1 col -->
+        <div class="bento-card bc2">
+            <div class="b-badge">02</div>
+            <h2 class="b-ttl">Soberanía<br>Energética</h2>
+            <div class="b-sep"></div>
+            <p class="b-body">Independencia energética mediante fuentes renovables propias, garantizando precios
+                accesibles y estabilidad para todos frente a la volatilidad exterior.</p>
+            <div class="b-ghost">02</div>
+        </div>
+
+        <!-- 03 Industrial — 1 col INK -->
+        <div class="bento-card bv-ink bc3">
+            <div class="b-badge">03</div>
+            <h2 class="b-ttl">Soberanía<br>Industrial</h2>
+            <div class="b-sep"></div>
+            <p class="b-body">Cadenas de suministro resilientes y reindustrialización verde decidida para que España y
+                Europa ganen autonomía en los sectores estratégicos del mañana.</p>
+            <div class="b-ghost">03</div>
+        </div>
+
+        <!-- 04 Libertades — 1 col -->
+        <div class="bento-card bc4">
+            <div class="b-badge">04</div>
+            <h2 class="b-ttl">Libertades<br>y Derechos</h2>
+            <div class="b-sep"></div>
+            <p class="b-body">El nuevo reaccionarismo no trae mayor libertad, sino la imposición de una moral pública
+                única. Defendemos el derecho de cada español a construir su propio proyecto de vida.</p>
+            <div class="b-ghost">04</div>
+        </div>
+
+        <!-- 05 Progreso — 1 col -->
+        <div class="bento-card bc5">
+            <div class="b-badge">05</div>
+            <h2 class="b-ttl">Progreso<br>Seguro</h2>
+            <div class="b-sep"></div>
+            <p class="b-body">Tecnología e IA con límites éticos explícitos. Una transición justa que proteja el empleo
+                frente a la automatización masiva y que no deje a nadie atrás.</p>
+            <div class="b-ghost">05</div>
+        </div>
+
+        <!-- 06 Futuro — 1 col -->
+        <div class="bento-card bc6">
+            <div class="b-badge">06</div>
+            <h2 class="b-ttl">Futuro<br>Asegurado</h2>
+            <div class="b-sep"></div>
+            <p class="b-body">Frente al reto demográfico, un modelo que invierte a través de impuestos en proyectos de
+                alto valor: los ciudadanos como accionistas del progreso colectivo.</p>
+            <div class="b-ghost">06</div>
+        </div>
+
+        <!-- 07 Migración — 1 col -->
+        <div class="bento-card bc7">
+            <div class="b-badge">07</div>
+            <h2 class="b-ttl">Migración<br>Pragmática</h2>
+            <div class="b-sep"></div>
+            <p class="b-body">Marcos ágiles para atraer y acoger el talento necesario. Retrasar esto significa perder
+                crecimiento económico y dinamismo social frente a nuestros vecinos europeos.</p>
+            <div class="b-ghost">07</div>
+        </div>
+
+        <!-- 08 Fiscalidad — 3 col INK -->
+        <div class="bento-card bv-ink bc8">
+            <div class="c8-inner">
+                <div class="c8-left">
+                    <div>
+                        <div class="b-badge">08</div>
+                        <h2 class="b-ttl">Fiscalidad<br>Justa</h2>
+                    </div>
+                    <p class="b-body">Ninguno de estos proyectos es posible sin un sistema tributario donde quienes más
+                        tienen aporten lo que les corresponde. Acabaremos con los paraísos fiscales internos y la
+                        elusión sistemática de las grandes fortunas para asegurar el progreso común.</p>
+                </div>
+                <div class="c8-right">
+                    <div class="c8-stat">
+                        <div class="b-sval">€8.200M</div>
+                        <div class="b-slbl">Elusión fiscal anual</div>
+                    </div>
+                    <div class="c8-stat">
+                        <div class="b-sval">~0%</div>
+                        <div class="b-slbl">Tipo efectivo fortunas</div>
+                    </div>
+                    <div class="c8-stat">
+                        <div class="b-sval">23</div>
+                        <div class="b-slbl">Paraísos identificados</div>
+                    </div>
+                </div>
+            </div>
+            <div class="b-ghost">08</div>
+        </div>
+
+    </section>
 
     <script>
         const yr = new Date().getFullYear();
         const eyebrow = document.getElementById('eyebrow-year');
         if (eyebrow) eyebrow.textContent = yr;
-        const yearBig = document.getElementById('year-big');
-        if (yearBig) yearBig.textContent = yr;
 
         document.getElementById('signup-form').addEventListener('submit', async function (e) {
             e.preventDefault();
