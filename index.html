@@ -596,6 +596,38 @@
             max-width: 380px;
             text-align: right;
         }
+
+        /* ULTRA LINK */
+        .ultra-link {
+            color: #fff;
+            font-weight: 700;
+            text-decoration: underline;
+            text-decoration-color: rgba(255,255,255,0.5);
+            text-underline-offset: 4px;
+            text-decoration-thickness: 1.5px;
+            transition: text-decoration-color 0.2s, text-decoration-thickness 0.2s;
+        }
+
+        .ultra-link::after {
+            content: '↗';
+            font-size: 0.65em;
+            display: inline-block;
+            position: relative;
+            top: -0.25em;
+            margin-left: 3px;
+            opacity: 0.6;
+            transition: opacity 0.2s, transform 0.2s cubic-bezier(0.16,1,0.3,1);
+        }
+
+        .ultra-link:hover {
+            text-decoration-color: rgba(255,255,255,1);
+            text-decoration-thickness: 3px;
+        }
+
+        .ultra-link:hover::after {
+            opacity: 1;
+            transform: translate(2px, -2px);
+        }
     </style>
 </head>
 
@@ -665,7 +697,9 @@
             <p
                 class="relative z-10 mt-7 font-light font-medium text-[1rem] leading-[1.65] text-white/[0.85] max-w-[420px] opacity-0 animate-fade-up [animation-delay:0.55s]">
                 Europa y el mundo atraviesan un momento de gran transformación. <br>Frente a la amenaza de una
-                Internacional Ultraderechista, y la complacencia de la derecha tradicional con ella, España se erige
+                <a href="https://freedomhouse.org/report/freedom-world/2026/growing-shadow-autocracy" target="_blank"
+                    rel="noopener" class="ultra-link" data-text="Internacional Ultraderechista">Internacional
+                    Ultraderechista</a>, y la complacencia de la derecha tradicional con ella, España se erige
                 como un referente de progreso, derechos y soberanía compartida.<br>Defendamos nuestro modelo de país.
             </p>
 
@@ -717,7 +751,7 @@
             <div
                 class=" bg-cream py-4 px-7 lg:py-5 lg:px-12 border-t border-b border-black/[0.07] flex flex-row items-center gap-3">
                 <span class="text-[0.8rem] font-bold tracking-normal uppercase text-black/30">Mail:</span>
-                <a class="text-[0.8rem] text-black font-bold tracking-tight uppercase text-black/30 no-underline hover:text-red transition-colors"
+                <a class="text-[0.8rem]   font-bold tracking-tight uppercase text-black  no-underline hover:text-red transition-colors"
                     href="mailto:hola@votapsoe.es">hola@votapsoe.es</a>
             </div>
         </div>
